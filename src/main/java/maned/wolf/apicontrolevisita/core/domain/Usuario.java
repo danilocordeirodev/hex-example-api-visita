@@ -1,21 +1,24 @@
 package maned.wolf.apicontrolevisita.core.domain;
 
+import maned.wolf.apicontrolevisita.adapter.repository.entity.PessoaEntity;
+
 public class Usuario {
 
     private Long id;
     private String email;
     private String senha;
     private Boolean admistrador;
-    private Long idPessoa;
+    private Pessoa pessoa;
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String email, String senha, Boolean admistrador) {
+    public Usuario(Long id, String email, String senha, Boolean admistrador, Pessoa pessoa) {
         this.id = id;
         this.email = email;
         this.senha = senha;
         this.admistrador = admistrador;
+        this.pessoa = pessoa;
     }
 
     public Long getId() {
@@ -50,11 +53,11 @@ public class Usuario {
         this.admistrador = admistrador;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

@@ -2,6 +2,7 @@ package maned.wolf.apicontrolevisita.adapter.converter;
 
 import maned.wolf.apicontrolevisita.adapter.dto.UsuarioRequest;
 import maned.wolf.apicontrolevisita.adapter.dto.UsuarioResponse;
+import maned.wolf.apicontrolevisita.core.domain.Pessoa;
 import maned.wolf.apicontrolevisita.core.domain.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +12,14 @@ public class UsuarioConverter {
         return new Usuario(usuarioRequest.getId(),
                 usuarioRequest.getEmail(),
                 usuarioRequest.getSenha(),
-                usuarioRequest.getAdmistrador());
+                usuarioRequest.getAdmistrador(),
+                new Pessoa(null, usuarioRequest.getNome()));
     }
 
     public UsuarioResponse toResponse(Usuario usuario) {
         return new UsuarioResponse(usuario.getId(),
+                usuario.getPessoa().getNome(),
                 usuario.getEmail(),
-                usuario.getSenha(),
                 usuario.getAdmistrador());
     }
 }
